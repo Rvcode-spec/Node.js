@@ -47,7 +47,7 @@ server.get("/test", function(req,res,next){
 
 
 server.get("*", function(req,res){
-    res.send("404! page ")
+    res.send(" 404  ! page ")
 })
 
 
