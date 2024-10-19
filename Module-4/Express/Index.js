@@ -47,7 +47,7 @@ server.get("/test", function(req,res,next){
 
 
 server.get("*", function(req,res){
-    res.send("page is not found")
+    res.send("404! page is not found ")
 })
 
 
