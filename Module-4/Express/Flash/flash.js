@@ -2,10 +2,6 @@ const express = require('express')
 const server = express()
 const Exexpress =require('express-session')
 const flash =require('connect-flash')
-const cookieParser = require('cookie-parser')
-
-
-server.use(cookieParser())
 
 
 server.use(flash())
@@ -48,4 +44,4 @@ server.get('*', function(req, res, next){
     res.send("404! data is not found")
 })
 
-server.listen(2000)
+server.listen(1000)
