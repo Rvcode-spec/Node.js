@@ -18,6 +18,7 @@ server.get("/", function(req, res, next){
 
     // console.log("hello Ravi");
     res.cookie("Name" , "Ravi")
+    res.cookie("Mobile" , "8765564321")
     res.send("data send ")
     // next()
 })
@@ -30,7 +31,7 @@ server.get("/user", function(req, res, next){
 })
 
 server.get("/product", function(req, res, next){
-    
+
     res.send("Multipal Product")
     // next()
 
