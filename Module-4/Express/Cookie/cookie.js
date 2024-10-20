@@ -31,7 +31,6 @@ server.get("/user", function(req, res, next){
 
 server.get("/product", function(req, res, next){
     
-    console.log(Exexpress.Session.Ravi);
     res.send("Multipal Product")
     // next()
 
@@ -42,4 +41,4 @@ server.get("*", function(req, res, next){
     res.send("404! Page Not Found")
 })
 
-server.listen(2000)
+server.listen(3000)
