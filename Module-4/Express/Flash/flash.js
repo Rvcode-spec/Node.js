@@ -32,7 +32,6 @@ server.get('/test', function(req, res, next){
     // console.log(req.flash.info)
     // res.send(msg)
     console.log("hello world ")
-    console.log(msg)
     res.send(msg)
 })
 
