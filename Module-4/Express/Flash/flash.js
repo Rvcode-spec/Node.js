@@ -35,9 +35,16 @@ server.get('/test', function(req, res, next){
     res.send(msg)
 })
 
+
 server.get('/admin', function(req, res, next){
     res.send("control the sites")
 })
+
+server.get('/subject', function(req, res, next){
+
+        res.send("All Subjects")
+})
+
 
 server.get('*', function(req, res, next){
     res.send("404! data is not found")
