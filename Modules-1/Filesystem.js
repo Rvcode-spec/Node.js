@@ -52,17 +52,5 @@ const http = require('http');
 // const Home = require('./home');
 
 // Start the primary server
-Server.listen(8000, '127.0.0.1', () => {
-    console.log('Listening to requests on port 8000');
-});
-
-// Start the home server
-Home.listen(8001, '127.0.0.1', () => {
-    console.log('Home server is running on port 8001');
-});
-
-Home.listen(8001, '127.0.0.1', () => {
-    console.log('Home server is running on port 8001');
-});
 
 
