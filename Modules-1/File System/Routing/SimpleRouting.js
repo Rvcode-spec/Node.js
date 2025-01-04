@@ -9,7 +9,9 @@ const url = require('url');
         res.end('This is the home page');
     } else if (pathName === '/product') {
         res.end('This is the product page');
-    } else {
+    } else  if(pathName=== '/about'){
+        res.end('This is the about page');
+        } else {
         res.writeHead(404, {
             'Content-Type': 'text/html',
             'my-own-header' : 'Hello, World!'
