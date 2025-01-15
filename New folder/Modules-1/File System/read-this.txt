@@ -1,2 +1,0 @@
-Asynchronous programming is a style of programming where
-the program does not wait for the completion of a task before moving

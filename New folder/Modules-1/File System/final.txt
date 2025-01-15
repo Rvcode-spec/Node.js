@@ -1,3 +1,0 @@
-Asynchronous programming is a style of programming where
-the program does not wait for the completion of a task before moving
- A Synchronous the execution of multiple tasks in a single thread.

@@ -22,6 +22,10 @@ server.get('/Project',(req,resp)=>{
     resp.render('Project',{item})
 })
 
+server.get('/item',(req,resp)=>{
+    resp.render('index')
+})
+
 server.listen(3500,()=>{
     console.log("Server is Successfully Run");
     
