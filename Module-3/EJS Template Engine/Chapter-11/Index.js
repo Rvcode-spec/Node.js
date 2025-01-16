@@ -11,7 +11,7 @@ server.set('view engine', 'ejs')
 server.set('views', dir);
 
 server.get('/',(req,resp)=>{
-    resp.render('Index')
+    resp.render('')// Dract Index page open
 })
 
 server.get('/Project',(req,resp)=>{
