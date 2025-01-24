@@ -1,5 +1,5 @@
 .*tex
-/node_modules
+node_modules/
 Books/
 Old Work File/
 Video/
