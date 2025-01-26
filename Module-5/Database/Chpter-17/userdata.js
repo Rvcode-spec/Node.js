@@ -10,10 +10,10 @@ const insert = async ()=>{
             phone:'9876467865',
         },
 
-        {
-                name: 'Vinod Kumar',
-                emailId:'vinodkumer@gmail.com'
-        }
+        // {
+        //         name: 'Vinod Kumar',
+        //         emailId:'vinodkumer@gmail.com'
+        // }
     ]);
 
 
