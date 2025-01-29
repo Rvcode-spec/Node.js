@@ -10,4 +10,4 @@ const dbConnect = require('./mongodb')
 
     ])
 }
-Update()
+Update();
