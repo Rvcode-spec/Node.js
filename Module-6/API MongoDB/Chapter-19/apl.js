@@ -32,6 +32,15 @@ server.put('/:name', async(req,resp)=>{
     resp.send({result:"Update"})
 })
 
+
+server.delete('/:id', async (req,resp)=>{
+    console.log(req.params.id);
+    
+    let data = await dbConnect();
+    let result = await data.deleteOne({_id:new mongodb.ObjectId(req.params.id)})
+    resp.send(result)
+})
+
 server.listen(5000,()=>{
     console.log("Server Successfully Run");
     
