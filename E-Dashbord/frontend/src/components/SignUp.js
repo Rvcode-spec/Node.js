@@ -1,13 +1,20 @@
-import React  from "react";
+import React, { useEffect }  from "react";
 
 import { useState } from "react";
 import {useNavigate} from "react-router-dom"; // redirect
 
- function SingUp(){
+ function SignUp(){
     const [name,setName] = useState("");
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
     const navigate = useNavigate(); //only works inside function components or custom hooks.
+    
+    useEffect(()=>{  // Do Not Render the SingUp Page 
+        const auth =localStorage.getItem('user')
+        if(auth){
+            navigate('/')
+        }
+    })
 
     const collectDate = async () => {
         console.log(name, email, password); // Log the values of name, email, password
@@ -26,13 +33,13 @@ import {useNavigate} from "react-router-dom"; // redirect
         localStorage.setItem('user', JSON.stringify(result)) // browser data save 
         if(result){
             
-            navigate('/')
+            navigate('/')   
         }
     };
     
     return(
         <div>
-            <h1>SingUp</h1>
+            <h1>SignUp</h1>
             <input  className="inputBox" type="text" placeholder="Name" value={name} 
                 onChange={(event) => {
                     setName(event.target.value);
@@ -57,4 +64,4 @@ import {useNavigate} from "react-router-dom"; // redirect
     )
 }
 
-export default SingUp;
+export default SignUp;

@@ -15,3 +15,7 @@ the server must explicitly allow those cross-origin requests by setting specific
 localStorage.setItem() - How It Works:- localStorage.setItem() is a method used in JavaScript to
 store data persistently in the browser’s localStorage. 
 The data remains even after the page is refreshed or the browser is closed.
+
+How <Outlet> Works:- When a parent route is matched, <Outlet> renders the child route inside it.
+Useful for layouts (like dashboards, authentication pages, etc.).
+Keeps common UI elements (like navbar, sidebar) while switching between child components.
