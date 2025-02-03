@@ -21,6 +21,7 @@ export default function Nav() {
             <li><Link to ="/profile">Profile</Link></li>
             <li>{auth?<Link onClick={logout} to ="/signup">Log Out </Link>:
             <Link to ="/signup">SignUp</Link>}</li>
+            <li><Link to="/login">Login</Link></li>
         </ul>
       
     </div>
