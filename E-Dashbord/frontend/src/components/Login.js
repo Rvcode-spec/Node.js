@@ -1,12 +1,33 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react' 
+import { useNavigate } from 'react-router';
 export default function Login() {
+    const navigate = useNavigate();
+    useEffect(()=>{
+        const auth =localStorage.getItem('user')
+        if(auth){
+            navigate('/')
+        }
+    })
     const [email,setEmail] = useState();
     const [password,setPassword]= useState();
 
     const handleLogin= async ()=>{
-        let result=await fetch('')
-        console.log(email,password);
+        let result=await fetch('http://localhost:5000/Login',{
+            method:'post',
+            body:JSON.stringify({email,password}),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        });
+        result = await result.json();
+        console.log(result);
+        if(result.name){
+            localStorage.setItem("user", JSON.stringify(result))
+            navigate("/")
+        }
+        
+        // console.log(email,password);
         
     }
 
