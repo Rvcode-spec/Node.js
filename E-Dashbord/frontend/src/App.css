@@ -42,7 +42,21 @@
     display: block;
     margin-left: 500px;
 }
+.filled-input{
+  color: red;
+  margin-left: 500px;
+}
 
+.product-list{
+  text-align: center;
+  margin: 20px;
+}
+.product-list ul li{
+  display: inline-block;
+  border: 1px solid black;
+  padding: 5px;
+  width: 150px;;
+}
 button{
   padding: 5px;
   margin: 10px;

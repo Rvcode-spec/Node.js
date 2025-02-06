@@ -40,10 +40,19 @@ app.post("/Login", async (req, resp) => {
   }
 });
 
-app.post('/add-product',async (req,resp)=>{
-    let product =new addProduct(req.body);
-    let result = await product.save();
-    resp.send(result)
+app.post('/add-product', async (req, resp) => {
+  let product = new addProduct(req.body);
+  let result = await product.save();
+  resp.send(result)
+})
+
+app.get('/products', async (req,resp)=>{
+  let products = await addProduct.find();
+  if(products.length>0){
+    resp.send(products)
+  }else{
+    resp.send({result:"No Product Found"})
+  }
 })
 
 app.listen(5000, () => {
