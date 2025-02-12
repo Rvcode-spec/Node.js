@@ -9,6 +9,7 @@ function UpdateProduct() {
   
   const UpdateProduct = async () => {
     console.log(name,price,category,company);
+    fetch('')
     
   };
 

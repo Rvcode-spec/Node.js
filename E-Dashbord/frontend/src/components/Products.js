@@ -49,7 +49,6 @@ export default function Products() {
                     </ul>
                 ))}
             </ul>
-
         </div>
     )
 }
