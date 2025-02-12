@@ -60,6 +60,15 @@ app.delete('/products/:id', async(req,resp)=>{
   resp.send(result);
 })
 
+app.get('/products/:id', async (req,resp)=>{
+    let result = await addProduct.findOne({_id:req.params.id})
+    if(result){
+      resp.send(result)
+    }else{
+      resp.send({result:"No Record Found"})
+    }
+})
+
 app.listen(5000, () => {
   console.log("App Successfully Running on Port 3000");
 });
