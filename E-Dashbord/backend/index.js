@@ -63,7 +63,7 @@ app.delete('/products/:id', async(req,resp)=>{
 app.get('/products/:id', async (req, resp) => {
   let result = await addProduct.findOne({ _id:req.params.id });
   if (result) {
-    resp.send({result: "Match"});
+    resp.send({result});
   } else {
     resp.send({ result: "No Record Found" });
   }
