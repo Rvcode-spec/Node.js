@@ -69,6 +69,13 @@ app.get('/products/:id', async (req, resp) => {
   }
 },[]);
 
+app.put('/products/:id', async (req, resp) => {
+  let result = await addProduct.updateOne(
+      { _id: req.params.id },
+      { $set: req.body }
+  );
+  resp.send(result);
+});
 
 app.listen(5000, () => {
   console.log("App Successfully Running on Port 3000");

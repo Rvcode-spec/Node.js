@@ -14,7 +14,6 @@ function App() {
       <BrowserRouter>
         <Nav/>
         <Routes>
-
           <Route element = {<PrivateRoute/>}>
           <Route path="/" element={<h1>Home</h1>} />
           <Route path="/products" element={<Products/>}/>
