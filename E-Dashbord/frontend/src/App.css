@@ -27,6 +27,30 @@
   padding: 5px;
 }
 
+.serach-box{
+  width: 200px;
+    margin: 20px;
+    display: inline-block;
+    border: 1px solid black;
+    text-align: center;
+    font-size: medium;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .footer{
   bottom: 0;
   background-color: blue;

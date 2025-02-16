@@ -31,9 +31,17 @@ export default function Products() {
     }
     // console.log("prodect", products);
 
+    const serachHandle = (e)=>{
+            console.log(e.target.value);
+            
+        // let key =e.target.value;
+    }
+
     return (
         <div className='product-list'>
             <h1>Products Pagas</h1>
+            <input  className="serach-box "type='text' placeholder='Serach'
+               onChange={serachHandle} />
             <ul>
                 <li>S.No</li>
                 <li>Name</li>

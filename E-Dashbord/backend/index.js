@@ -46,37 +46,47 @@ app.post('/add-product', async (req, resp) => {
   resp.send(result)
 })
 
-app.get('/products', async (req,resp)=>{
+app.get('/products', async (req, resp) => {
   let products = await addProduct.find();
-  if(products.length>0){
+  if (products.length > 0) {
     resp.send(products)
-  }else{
-    resp.send({result:"No Product Found"})
+  } else {
+    resp.send({ result: "No Product Found" })
   }
 })
 
-app.delete('/products/:id', async(req,resp)=>{
-  const  result = await addProduct.deleteOne({_id:req.params.id});
+app.delete('/products/:id', async (req, resp) => {
+  const result = await addProduct.deleteOne({ _id: req.params.id });
   resp.send(result);
 })
 
 app.get('/products/:id', async (req, resp) => {
-  let result = await addProduct.findOne({ _id:req.params.id });
+  let result = await addProduct.findOne({ _id: req.params.id });
   if (result) {
-    resp.send({result});
+    resp.send({ result });
   } else {
     resp.send({ result: "No Record Found" });
   }
-},[]);
+}, []);
 
 app.put('/products/:id', async (req, resp) => {
   let result = await addProduct.updateOne(
-      { _id: req.params.id },
-      { $set: req.body }
+    { _id: req.params.id },
+    { $set: req.body }
   );
   resp.send(result);
 });
 
+
+app.get('/search/:key', async (req, resp) => {
+  let result = await addProduct.find({
+    "$or":[
+      { name: { $regex: req.params.key } },
+      { company: { $regex: req.params.key } }
+    ]
+  });
+  resp.send(result);
+});
 app.listen(5000, () => {
   console.log("App Successfully Running on Port 3000");
 });

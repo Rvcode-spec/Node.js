@@ -34,10 +34,7 @@ function UpdateProduct() {
     })
     result = await result.json();
     console.log(result);
-
     navigate('/products')
-    
-    
   };
 
   return (
