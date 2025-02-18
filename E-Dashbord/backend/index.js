@@ -4,6 +4,9 @@ const User = require("./DB/user");
 const cors = require("cors");
 const addProduct = require("./DB/add-product");
 
+const jwt = require('jsonwebtoken');
+const jwtKey = 'e-comm';
+
 const app = express(); // ✅ Correct way to initialize Express
 app.use(express.json()); // ✅ Middleware to parse JSON
 app.use(cors()); //
@@ -18,19 +21,24 @@ app.post("/SignUp", async (req, resp) => {
 
 app.post("/Login", async (req, resp) => {
   try {
-    if (!req.body.email || !req.body.password) {
-      return resp
-        .status(400)
-        .json({ result: "Email and password are required" });
+    const { email, password } = req.body;
+
+    // Check if email and password are provided
+    if (!email || !password) {
+      return resp.status(400).json({ result: "Email and password are required" });
     }
 
-    let user = await User.findOne({
-      email: req.body.email,
-      password: req.body.password,
-    }).select("-password");
+    // Check if user exists in the database
+    const user = await User.findOne({ email, password }).select("-password");
 
     if (user) {
-      return resp.json(user); // Send response and stop execution
+      // Generate JWT token if user is found
+      jwt.sign({ user }, jwtKey, { expiresIn: "2h" }, (err, token) => {
+        if (err) {
+          return resp.status(500).json({ result: "Token generation failed" });
+        }
+        return resp.json({ user, auth: token });
+      });
     } else {
       return resp.status(404).json({ result: "No User Found" });
     }
@@ -39,6 +47,7 @@ app.post("/Login", async (req, resp) => {
     return resp.status(500).json({ error: "Internal Server Error" });
   }
 });
+
 
 app.post('/add-product', async (req, resp) => {
   let product = new addProduct(req.body);
@@ -80,7 +89,7 @@ app.put('/products/:id', async (req, resp) => {
 
 app.get('/search/:key', async (req, resp) => {
   let result = await addProduct.find({
-    "$or":[
+    "$or": [
       { name: { $regex: req.params.key } },
       { company: { $regex: req.params.key } }
     ]

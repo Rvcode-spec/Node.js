@@ -13,6 +13,8 @@ export default function Login() {
     const [password,setPassword]= useState();
 
     const handleLogin= async ()=>{
+        console.log("all set");
+        
         let result=await fetch('http://localhost:5000/Login',{
             method:'post',
             body:JSON.stringify({email,password}),
@@ -24,6 +26,7 @@ export default function Login() {
         console.log(result);
         if(result.name){
             localStorage.setItem("user", JSON.stringify(result))
+            // localStorage.setItem('token',JSON.stringify(result.auth))
             navigate("/")
         }
         
@@ -38,13 +41,13 @@ export default function Login() {
         <input type='email' placeholder='email' value={email}
         onChange={(event)=>{
             setEmail(event.target.value);
-            console.log(event.target.value);
+            // console.log(event.target.value);
         }}
         />
         <input type='password' placeholder='password' value={password}
         onChange={(event)=>{
             setPassword(event.target.value)
-            console.log(event.target.value);
+            // console.log(event.target.value);
             
         }}/>
         <button onClick={handleLogin}>Login</button>
